@@ -37,10 +37,10 @@ namespace BibliothekVerwaltung
 
             
         }
-        public void Oeffnen(string sProgramm,string sPfad)
+        public void Oeffnen(string sProgramm, string sPfad, int iInstallationsdatum, int iZuletztGespielt, string sKategorie, string sPublisher)
         {
             Liste.Sort((s1, s2) => s1[1].CompareTo(s2[1]));
-            Spiel sp = new Spiel(sProgramm, sPfad);
+            Spiel sp = new Spiel(sProgramm,iInstallationsdatum,iZuletztGespielt,sKategorie,sPublisher,sPfad);
             Process.Start(sp.Pfad);
         }   
         

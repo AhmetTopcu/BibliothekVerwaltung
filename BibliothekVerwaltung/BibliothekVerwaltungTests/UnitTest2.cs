@@ -67,7 +67,7 @@ namespace BibliothekVerwaltungTests
 
             Bibliothek bn = new Bibliothek();
 
-            bn.Oeffnen("Rechner", @"C:\Windows\System32\calc.exe");
+            bn.Oeffnen("Rechner", @"C:\Windows\System32\calc.exe",,);
             Process[] p = Process.GetProcessesByName("calc");
             Assert.AreNotEqual(0, p.Length);
         }
