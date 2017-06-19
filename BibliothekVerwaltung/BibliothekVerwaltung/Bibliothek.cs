@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace BibliothekVerwaltung
@@ -36,6 +37,13 @@ namespace BibliothekVerwaltung
 
             
         }
+        public void Oeffnen(string sProgramm,string sPfad)
+        {
+            Liste.Sort((s1, s2) => s1[1].CompareTo(s2[1]));
+            Spiel sp = new Spiel(sProgramm, sPfad);
+            Process.Start(sp.Pfad);
+        }   
+        
 
     }
 }

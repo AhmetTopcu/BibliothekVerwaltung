@@ -1,6 +1,7 @@
 ﻿using System;
 using BibliothekVerwaltung;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BibliothekVerwaltungTests
@@ -32,7 +33,7 @@ namespace BibliothekVerwaltungTests
             Bibliothek bn = new Bibliothek();
             list.Add("Sand");
             bn.NameEntfernen(null);
-            Assert.AreEqual(null,bn.Liste[0]);
+            Assert.Fail();
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -41,7 +42,7 @@ namespace BibliothekVerwaltungTests
             Bibliothek bn = new Bibliothek();
             list.Add("Sand");
             bn.NameEntfernen("");
-            Assert.AreEqual("Sand",bn.Liste[0]);
+            Assert.Fail();
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -49,14 +50,26 @@ namespace BibliothekVerwaltungTests
         {
             Bibliothek bn = new Bibliothek();
             bn.NameHinzufuegen("");
-            Assert.AreEqual(0, bn.Liste.Count);
+            Assert.Fail();
         }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void NameHinzufuegenNotNull()
         {
             Bibliothek bn = new Bibliothek();
             list.Add("Sand");
             bn.NameHinzufuegen(null);
-            Assert.AreEqual(null,bn.Liste[0];
+            Assert.Fail();
+        }
+        [TestMethod]
+        public void Oeffnen()
+        {
+
+            Bibliothek bn = new Bibliothek();
+
+            bn.Oeffnen("Rechner", @"C:\Windows\System32\calc.exe");
+            Process[] p = Process.GetProcessesByName("calc");
+            Assert.AreNotEqual(0, p.Length);
         }
     }
 }
