@@ -12,12 +12,20 @@ namespace BibliothekVerwaltung
 
         public void NameHinzufuegen(string InhaltHinzufuegen)
         {
-            Liste.Add(InhaltHinzufuegen);
+            if (InhaltHinzufuegen == null || InhaltHinzufuegen == "")
+            {
+                throw new ArgumentOutOfRangeException("Das Spiel " + InhaltHinzufuegen + "kann nicht hinzugefügt werden!");
+            }
+            else
+            {
+                Liste.Add(InhaltHinzufuegen);
+            }
+           
         }
 
         public void NameEntfernen(string InhaltEntfernen)
         {
-            if (InhaltEntfernen == null || Liste.Contains(InhaltEntfernen))
+            if (InhaltEntfernen == null || InhaltEntfernen == "")
             {
                 throw new ArgumentOutOfRangeException("Das Spiel " + InhaltEntfernen + " kann nicht gelöscht werden!");     
             }
